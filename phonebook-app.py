@@ -9,7 +9,7 @@ from flaskext.mysql import MySQL
 app = Flask(__name__)
 
 # The hardest part of this project is to get endpoint of RDS instances. Since our RDS is created within cloudformation template, we need to get RDS endpoint and paste it here as environmental variable using Launch templates user data. 
-db_endpoint = open("/home/ec2-user/phonebook/dbserver.endpoint", 'r', encoding='UTF-8') 
+# db_endpoint = open("/home/ec2-user/phonebook/dbserver.endpoint", 'r', encoding='UTF-8') 
 
 # Configure mysql database
 
@@ -20,7 +20,7 @@ app.config['MYSQL_DATABASE_USER'] = 'admin'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'Oliver_1'
 app.config['MYSQL_DATABASE_DB'] = 'phonebook'
 app.config['MYSQL_DATABASE_PORT'] = 3306
-db_endpoint.close()
+# db_endpoint.close()
 mysql = MySQL() # We are using this function to initialize mysql 
 mysql.init_app(app) 
 connection = mysql.connect()
